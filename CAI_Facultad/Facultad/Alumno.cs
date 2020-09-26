@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Facultad
 {
-    class Alumno : Persona 
+    class Alumno : Persona
     {
         int codigo;
         public override string GetCredencial()
         {
-            throw new NotImplementedException();
+            return "Codigo " + codigo + GetCredencial();
         }
         public int Codigo
         {
@@ -24,6 +24,7 @@ namespace Facultad
                 codigo = value;
             }
         }
+        public 
 
     }
 }
