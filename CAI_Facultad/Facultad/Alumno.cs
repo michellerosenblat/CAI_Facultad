@@ -29,20 +29,14 @@ namespace Facultad
                 codigo = value;
             }
         }
-        public string Credencial
-        {
-          get
-            {
 
-            }
-            set
-            {
-
-            }
-        }
         public override string ToString()
         {
             return GetCredencial() ;
+        }
+        public override bool Equals(object obj)
+        {
+            return (obj != null && obj is Alumno && this.codigo == ((Alumno)obj).codigo);
         }
 
     }

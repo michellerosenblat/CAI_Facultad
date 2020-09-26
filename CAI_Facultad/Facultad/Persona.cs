@@ -8,9 +8,9 @@ namespace Facultad
 {
     abstract class Persona
     {
-        string nombre;
-        string apellido;
-        DateTime fechaNac;
+        protected string nombre;
+        protected string apellido;
+        protected DateTime fechaNac;
 
         public Persona (string nombre, string apellido, DateTime fecha)
         {
@@ -51,7 +51,7 @@ namespace Facultad
         }
 
         public abstract string GetCredencial();
-        public string GetNombreCompleto()
+        public virtual string GetNombreCompleto()
         {
             return apellido +" ,  " + nombre;
         }

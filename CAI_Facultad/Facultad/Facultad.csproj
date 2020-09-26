@@ -42,12 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumno.cs" />
+    <Compile Include="AlumnoExistenteException.cs" />
+    <Compile Include="PersonaInexistenteException.cs" />
+    <Compile Include="Bedel.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Directivo.cs" />
+    <Compile Include="Docente.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="EmpleadoExistenteException.cs" />
     <Compile Include="Facultad.cs" />
     <Compile Include="ManejoFechas.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

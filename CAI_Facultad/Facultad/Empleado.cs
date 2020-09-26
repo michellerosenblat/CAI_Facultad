@@ -8,15 +8,16 @@ namespace Facultad
 {
     class Empleado : Persona
     {
-        DateTime fechaIngreso;
-        int legajo;
-        List<Salario> salarios;
+        protected DateTime fechaIngreso;
+        protected int legajo;
+        protected List<Salario> salarios;
 
         public Empleado(string nombre, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :
             base(nombre, apellido, fechaNac)
         {
             this.fechaIngreso = fechaIngreso;
             this.legajo = legajo;
+            salarios = new List<Salario> { };
         }
         public override string GetCredencial()
         {
@@ -72,8 +73,20 @@ namespace Facultad
         {
             get
             {
-                salarios.Last<Salario>;
+                return salarios.OrderByDescending(s => s.Fecha).First();
             }
+        }
+        public void AgregarSalario(Salario salarioAgregar)
+        {
+            salarios.Add(salarioAgregar);   
+        }
+        public override string ToString()
+        {
+            return GetCredencial();
+        }
+        public override bool Equals(object obj)
+        {
+            return (obj != null && obj is Empleado && this.legajo == ((Empleado)obj).legajo);
         }
     }
 }
