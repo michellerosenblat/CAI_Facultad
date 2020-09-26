@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Alumno.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Empleado.cs" />
     <Compile Include="Facultad.cs" />
+    <Compile Include="ManejoFechas.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

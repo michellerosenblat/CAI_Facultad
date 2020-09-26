@@ -12,6 +12,12 @@ namespace Facultad
         string apellido;
         DateTime fechaNac;
 
+        public Persona (string nombre, string apellido, DateTime fecha)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.fechaNac = fecha;
+        }
         public string Nombre
         {
             get
@@ -40,14 +46,14 @@ namespace Facultad
         {
             get
             {
-                return new DateTime(DateTime.Now.Subtract(fechaNac).Ticks).Year - 1;
+                return ManejoFechas.DiferenciaFechas(fechaNac);
             }
         }
 
         public abstract string GetCredencial();
         public string GetNombreCompleto()
         {
-            return nombre + apellido;
+            return apellido +" ,  " + nombre;
         }
     }
 }
