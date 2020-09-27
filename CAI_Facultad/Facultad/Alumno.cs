@@ -5,9 +5,9 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    class Alumno : Persona
+    public class Alumno : Persona
     {
         int codigo;
 
@@ -16,7 +16,7 @@ namespace Facultad
         }
         public override string GetCredencial()
         {
-            return "Codigo " + codigo + " " + GetCredencial();
+            return "Código " + codigo + " " + GetNombreCompleto();
         }
         public int Codigo
         {

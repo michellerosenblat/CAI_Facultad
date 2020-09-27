@@ -5,9 +5,9 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    class PersonaInexistenteException : Exception
+    public class PersonaInexistenteException : Exception
     {
         public PersonaInexistenteException(int codigo, string persona) : base("No existe el " + persona + " con código " + codigo) { }
            

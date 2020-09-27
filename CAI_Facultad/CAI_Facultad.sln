@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAI_Facultad", "CAI_Facultad\CAI_Facultad.csproj", "{C4D56085-6A9C-44AE-ADD6-F9D6EB13E9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facultad", "Facultad\Facultad.csproj", "{E523ECF3-BCAB-45EC-82E8-5FE7CC223385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacultadLibrary", "Facultad\FacultadLibrary.csproj", "{E523ECF3-BCAB-45EC-82E8-5FE7CC223385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

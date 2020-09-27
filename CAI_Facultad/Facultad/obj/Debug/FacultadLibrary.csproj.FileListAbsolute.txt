@@ -1,0 +1,6 @@
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\obj\Debug\FacultadLibrary.csprojAssemblyReference.cache
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\obj\Debug\FacultadLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\obj\Debug\Facultad.dll
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\obj\Debug\Facultad.pdb
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\bin\Debug\Facultad.dll
+C:\Users\Michu\Documents\GitHub\CAI_Facultad\CAI_Facultad\Facultad\bin\Debug\Facultad.pdb

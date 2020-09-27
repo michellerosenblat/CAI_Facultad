@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    abstract class Persona
+    abstract public class Persona
     {
         protected string nombre;
         protected string apellido;
@@ -53,7 +53,7 @@ namespace Facultad
         public abstract string GetCredencial();
         public virtual string GetNombreCompleto()
         {
-            return apellido +" ,  " + nombre;
+            return apellido +"," + nombre;
         }
     }
 }

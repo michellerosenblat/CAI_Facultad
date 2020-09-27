@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+
+namespace FacultadLibrary
 {
-    class Empleado : Persona
+    public class Empleado : Persona
     {
         protected DateTime fechaIngreso;
         protected int legajo;
@@ -74,6 +75,7 @@ namespace Facultad
             get
             {
                 return salarios.OrderByDescending(s => s.Fecha).First();
+                //Salarios.find(s -> s.fecha = Salarios.max(salario -> salario.fecha()))
             }
         }
         public void AgregarSalario(Salario salarioAgregar)

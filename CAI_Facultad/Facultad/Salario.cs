@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    class Salario
+    public class Salario
     {
         double bruto;
         string codigoTransferencia;

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    class AlumnoExistenteException : Exception
+    public class AlumnoExistenteException : Exception
     {
-        public AlumnoExistenteException(Alumno alumno) : base("El alumno con codigo " + alumno.Codigo + " ya existe") { };
+        public AlumnoExistenteException(Alumno alumno) : base("El alumno con codigo " + alumno.Codigo + " ya existe") { }
     }
 }

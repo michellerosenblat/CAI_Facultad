@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Facultad\Facultad.csproj">
+    <ProjectReference Include="..\Facultad\FacultadLibrary.csproj">
       <Project>{e523ecf3-bcab-45ec-82e8-5fe7cc223385}</Project>
-      <Name>Facultad</Name>
+      <Name>FacultadLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

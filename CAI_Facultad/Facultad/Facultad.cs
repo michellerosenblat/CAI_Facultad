@@ -4,15 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facultad
+namespace FacultadLibrary
 {
-    class Facultad
+    public class Facultad
     {
         List<Alumno> alumnos;
         int cantidadSedes;
         List<Empleado> empleados;
         string nombre;
 
+        public Facultad (string nombre)
+        {
+            this.nombre = nombre;
+            alumnos = new List<Alumno>();
+            empleados = new List<Empleado>();
+        }
         public string Nombre
         {
             get
@@ -35,7 +41,12 @@ namespace Facultad
                 this.cantidadSedes = value;
             }
         }
-        public void AgregarAlumno (Alumno alumno)
+        public void AgregarAlumno (string nombre, string apellido, DateTime fechaNac)
+        {
+            Alumno alumno = new Alumno(nombre, apellido, fechaNac, UltimoCodigoAlumno()+1 );
+            AgregarAlumno(alumno);
+        }
+        public void AgregarAlumno(Alumno alumno)
         {
             if (!alumnos.Any (a => a.Equals(alumno)))
             {
@@ -62,7 +73,7 @@ namespace Facultad
             try {
                 alumnos.Find(a => a.Codigo == codigoAlumno);
             }
-            catch (Exception e)
+            catch (Exception)
             { 
                 throw new PersonaInexistenteException(codigoAlumno, "alumno");
             }
@@ -73,7 +84,7 @@ namespace Facultad
             {
                 empleados.Find(e => e.Legajo == legajo);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new PersonaInexistenteException(legajo, "empleado");
             }
@@ -88,5 +99,29 @@ namespace Facultad
             return alumnos.Find(a => a.Codigo == alumno.Codigo);
         }
 
+
+        public string ListarAlumnoEspecifico(int codigoAlumno)
+        {
+            Alumno alumno = alumnos.Find(a => a.Codigo == codigoAlumno);
+            if (alumno is null)
+            {
+                throw new PersonaInexistenteException(codigoAlumno, "alumno");
+            }
+            else
+            {
+                return alumno.ToString();
+            }
+
+        }
+
+        public int UltimoCodigoAlumno ()
+        {
+            if (alumnos.Any())
+            {
+                return alumnos.Max(a => a.Codigo);
+            }
+            else
+                return 0;
+        }
     }
 }
