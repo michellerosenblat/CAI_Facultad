@@ -69,14 +69,28 @@ namespace FacultadLibrary
                 throw new EmpleadoExistenteException(empleado);
             }
         }
+        public void AgregarEmpleado (string nombre, string apellido, DateTime fechaNac, DateTime fechaIngreso, int tipoEmpleado)
+        {
+            switch (tipoEmpleado)
+            {
+                case 1:
+                    Docente docente = new Docente(nombre, apellido, fechaNac, fechaIngreso, UltimoLegajoEmpleado() + 1);
+                    AgregarEmpleado(docente);
+                    break;
+                case 2: 
+                    Directivo directivo = new Directivo (nombre, apellido, fechaNac, fechaIngreso, UltimoLegajoEmpleado() + 1);
+                    AgregarEmpleado(directivo);
+                    break;
+            }
+        }
+        public void AgregarEmpleado (string nombre, string apodo, string apellido, DateTime fechaNac, DateTime fechaIngreso, int tipoEmpleado)
+        {
+            Bedel bedel = new Bedel(nombre, apodo, apellido, fechaNac, fechaIngreso, UltimoLegajoEmpleado()+1);
+            AgregarEmpleado(bedel);
+        }
         public void EliminarAlumno (int codigoAlumno) {
-            try {
-                alumnos.Find(a => a.Codigo == codigoAlumno);
-            }
-            catch (Exception)
-            { 
-                throw new PersonaInexistenteException(codigoAlumno, "alumno");
-            }
+            Alumno alumno = BuscarAlumno(codigoAlumno);
+            alumnos.Remove(alumno);
         }
         public void EliminarEmpleado(int legajo)
         {
@@ -89,29 +103,52 @@ namespace FacultadLibrary
                 throw new PersonaInexistenteException(legajo, "empleado");
             }
         }
-        public void ModificarAlumno (Alumno alumno)
+
+        public void ModificarAlumno (Alumno alumnoAModificar)
         {
-            EncontrarAlumno(alumno);
+            Alumno alumno = BuscarAlumno(alumnoAModificar.Codigo);
+            alumno.Nombre = alumnoAModificar.Nombre;
+            alumno.Apellido = alumnoAModificar.Apellido;
+            alumno.FechaNacimiento = alumnoAModificar.FechaNacimiento;
+        }
+        public void ModificarEmpleado (Empleado empleadoAModificar)
+        {
+            Empleado empleado = BuscarEmpleado(empleadoAModificar.Legajo);
+            empleado.Nombre = empleadoAModificar.Nombre;
+            empleado.Apellido = empleadoAModificar.Apellido;
+            empleado.FechaIngreso = empleadoAModificar.FechaIngreso;
+            empleado.FechaNacimiento = empleadoAModificar.FechaNacimiento;
         }
 
-        public Alumno EncontrarAlumno (Alumno alumno)
+        public Alumno BuscarAlumno (int codigoAlumno)
         {
-            return alumnos.Find(a => a.Codigo == alumno.Codigo);
-        }
-
-
-        public string ListarAlumnoEspecifico(int codigoAlumno)
-        {
-            Alumno alumno = alumnos.Find(a => a.Codigo == codigoAlumno);
+           Alumno alumno = alumnos.Find(a => a.Codigo == codigoAlumno);
             if (alumno is null)
             {
                 throw new PersonaInexistenteException(codigoAlumno, "alumno");
             }
             else
-            {
-                return alumno.ToString();
-            }
+            return alumno;
+        }
 
+        public Empleado BuscarEmpleado (int legajoEmpleado)
+        {
+            Empleado empleado = empleados.Find(e => e.Legajo == legajoEmpleado);
+            if (empleado is null)
+            {
+                throw new PersonaInexistenteException(legajoEmpleado, "empleado");
+            }
+            else
+                return empleado;
+        }
+
+        public List <Alumno> ListarTodosLosAlumnos()
+        {
+            return alumnos;
+        }
+        public List<Empleado> ListarTodosLosEmpleados()
+        {
+            return empleados;
         }
 
         public int UltimoCodigoAlumno ()
@@ -119,6 +156,15 @@ namespace FacultadLibrary
             if (alumnos.Any())
             {
                 return alumnos.Max(a => a.Codigo);
+            }
+            else
+                return 0;
+        }
+        public int UltimoLegajoEmpleado()
+        {
+            if (empleados.Any())
+            {
+                return empleados.Max(e => e.Legajo);
             }
             else
                 return 0;

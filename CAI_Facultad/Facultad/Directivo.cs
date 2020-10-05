@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FacultadLibrary
 {
-    class Directivo : Empleado
+    public class Directivo : Empleado
     {
-        public Directivo(string nombre, string apodo, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :
+        public Directivo(string nombre, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :
            base(nombre, apellido, fechaNac, fechaIngreso, legajo)
         {
 

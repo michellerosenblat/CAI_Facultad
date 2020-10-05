@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FacultadLibrary
 {
-    class Bedel : Empleado
+    public class Bedel : Empleado
     {
         string apodo;
         public Bedel (string nombre, string apodo, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :

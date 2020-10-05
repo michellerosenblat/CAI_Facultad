@@ -12,17 +12,24 @@ namespace FacultadLibrary
         protected DateTime fechaIngreso;
         protected int legajo;
         protected List<Salario> salarios;
-
+        
         public Empleado(string nombre, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :
             base(nombre, apellido, fechaNac)
         {
             this.fechaIngreso = fechaIngreso;
             this.legajo = legajo;
-            salarios = new List<Salario> { };
+            salarios = new List<Salario> ();
         }
         public override string GetCredencial()
         {
-            return legajo + " " + GetNombreCompleto() + " salario " + UltimoSalario;
+            try
+            {
+                return legajo + " " + GetNombreCompleto() + " salario " + UltimoSalario;
+            }
+            catch (NoHaySueldoException)
+            {
+                return legajo + " " + GetNombreCompleto();
+            }
         }
 
         public int Antiguedad
@@ -43,17 +50,7 @@ namespace FacultadLibrary
                 fechaIngreso = value;
             }
         }
-        public DateTime FechaNacimiento
-        {
-            get
-            {
-                return FechaNacimiento;
-            }
-            set
-            {
-                FechaNacimiento = value;
-            }
-        }
+        
         public int Legajo
         {
             get
@@ -74,7 +71,15 @@ namespace FacultadLibrary
         {
             get
             {
-                return salarios.OrderByDescending(s => s.Fecha).First();
+                if (salarios is null || !salarios.Any ())
+                {
+                    throw new NoHaySueldoException();
+                }
+                else
+                {
+                    return salarios.OrderByDescending(s => s.Fecha).First();
+                }
+               
                 //Salarios.find(s -> s.fecha = Salarios.max(salario -> salario.fecha()))
             }
         }
@@ -84,7 +89,7 @@ namespace FacultadLibrary
         }
         public override string ToString()
         {
-            return GetCredencial();
+            return legajo + " "+ nombre + " " + apellido + " "+ FechaNacimiento.ToShortDateString() + " " + fechaIngreso.ToShortDateString();
         }
         public override bool Equals(object obj)
         {

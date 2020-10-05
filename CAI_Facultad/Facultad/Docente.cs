@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FacultadLibrary
 {
-    class Docente  : Empleado
+    public sealed class Docente  : Empleado
     {
         public Docente(string nombre, string apellido, DateTime fechaNac, DateTime fechaIngreso, int legajo) :
             base(nombre, apellido, fechaNac, fechaIngreso, legajo)

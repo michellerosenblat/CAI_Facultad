@@ -41,6 +41,17 @@ namespace FacultadLibrary
                 apellido = value;
             }
         }
+        public DateTime FechaNacimiento
+        {
+            get
+            {
+                return this.fechaNac;
+            }
+            set
+            {
+                fechaNac = value;
+            }
+        }
 
         public int Edad
         {
