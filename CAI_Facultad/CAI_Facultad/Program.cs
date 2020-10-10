@@ -169,6 +169,18 @@ namespace CAI_Facultad
                         }
                            
                         break;
+                    case 9:
+                        try { 
+                        codEmpleado = Validacion.PedirNumero("el código de empleado a buscar");
+                            Empleado empleado = facultad.BuscarEmpleado(codEmpleado);
+                            Console.WriteLine("Elegiste a " + empleado.ToString());
+                                }
+                        catch (PersonaInexistenteException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        break;
+
 
                                 case 10:
                         ListarEmpleadosDe(facultad);
