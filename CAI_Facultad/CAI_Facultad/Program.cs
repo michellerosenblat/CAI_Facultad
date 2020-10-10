@@ -153,7 +153,24 @@ namespace CAI_Facultad
                             Console.WriteLine(e.Message);
                         }
                         break;
-                    case 10:
+                    case 8:
+                        ListarEmpleadosDe(facultad);
+                        codEmpleado = Validacion.PedirNumero("el código de empleado a eliminar");
+                        try
+                        {
+                            Empleado empleadoAEliminar = facultad.BuscarEmpleado(codEmpleado);
+                            Console.WriteLine("Elegiste " + empleadoAEliminar.GetCredencial());
+                            facultad.EliminarEmpleado(codEmpleado);
+                            Console.WriteLine("Se ha eliminado exitosamente el empleado con codigo " + codEmpleado);
+                        }
+                        catch (PersonaInexistenteException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                           
+                        break;
+
+                                case 10:
                         ListarEmpleadosDe(facultad);
                         break;
 

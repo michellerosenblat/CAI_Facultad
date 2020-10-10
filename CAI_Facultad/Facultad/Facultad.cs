@@ -96,7 +96,8 @@ namespace FacultadLibrary
         {
             try
             {
-                empleados.Find(e => e.Legajo == legajo);
+                Empleado empleado = empleados.Find(e => e.Legajo == legajo);
+                empleados.Remove(empleado);
             }
             catch (Exception)
             {
